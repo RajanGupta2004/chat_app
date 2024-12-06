@@ -8,14 +8,14 @@ import ProfilePage from "./pages/ProfilePage";
 import { useAuthStore } from "./store/useAuthStore";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
-import Toaster from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
 
   useEffect(() => {
     checkAuth();
-  }, []);
+  }, [checkAuth]);
 
   if (isCheckingAuth && !authUser) {
     return (
@@ -47,7 +47,6 @@ function App() {
           />
           <Route path="*" element={<h1>Page Not found....</h1>} />
         </Routes>
-
         <Toaster />
       </div>
     </>

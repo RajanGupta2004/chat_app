@@ -12,19 +12,31 @@ const SignUpPage = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const { signup } = useAuthStore();
+
   const formValidation = () => {
-    if (!formData.fullName.trim()) return toast.error("Name is required");
-    if (!formData.email.trim()) return toast.error("email is required");
-    if (!formData.password.trim()) return toast.error("password is required");
+    if (!formData.fullName) {
+      toast.error("Name is required");
+      return false;
+    }
+    if (!formData.email.trim()) {
+      toast("Email is required");
+      return false;
+    }
+    if (!formData.password.trim()) {
+      toast("Password is required");
+      return false;
+    }
 
     return true;
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const success = formValidation();
+    const isValid = formValidation();
+    console.log(isValid);
 
-    if (success) {
+    if (isValid) {
       signup(formData);
     }
   };
