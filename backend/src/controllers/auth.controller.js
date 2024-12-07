@@ -142,13 +142,13 @@ const checkAuth = (req, res) => {
 const updateProfile = async (req, res) => {
   try {
     const { profilePic } = req.body;
+    // console.log(profilePic);
 
     if (!profilePic) {
       return res.status(400).json({ message: "All filed are required...." });
     }
 
     const uploadResponse = await cloudinary.uploader.upload(profilePic);
-    console.log(uploadResponse);
     if (!uploadResponse) {
       return res
         .status(400)
