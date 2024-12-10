@@ -10,8 +10,6 @@ const ChatMessage = () => {
   const inputfileRef = useRef();
   const { sendMessage, messages } = useChatStore();
 
-  console.log(messages);
-
   const handleImageChange = (e) => {
     const file = e.target.files[0];
 
@@ -70,6 +68,7 @@ const ChatMessage = () => {
           type="email"
           className={`p-2 outline-none  w-full rounded-md `}
           placeholder="type your message...."
+          value={text}
           onChange={(e) => setText(e.target.value)}
         />
         <form onSubmit={handleSendMessage}>

@@ -11,7 +11,9 @@ import Navbar from "./components/Navbar";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-  const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  const { authUser, checkAuth, isCheckingAuth, onLineUser } = useAuthStore();
+
+  console.log("onLineUsers", onLineUser);
 
   useEffect(() => {
     checkAuth();

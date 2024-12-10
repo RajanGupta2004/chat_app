@@ -65,8 +65,6 @@ const sendMessage = async (req, res) => {
       imageURL = uploadResponse.secure_url;
     }
 
-    console.log(imageURL);
-
     const newMessage = await new Message({
       senderId,
       reciverId,
