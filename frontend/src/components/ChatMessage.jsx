@@ -35,6 +35,7 @@ const ChatMessage = () => {
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
+
     if (!text.trim() && !imagePreview) return;
 
     try {
@@ -63,7 +64,7 @@ const ChatMessage = () => {
           </div>
         </div>
       )}
-      <div className="flex items-center gap-2 p-4">
+      <div className="flex  items-center gap-2 p-4 ">
         <input
           type="email"
           className={`p-2 outline-none  w-full rounded-md `}

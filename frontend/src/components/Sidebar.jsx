@@ -22,19 +22,19 @@ const Sidebar = () => {
   }
 
   return (
-    <aside className="h-full w-20 lg:w-72 bg-base-300 border-r border-gray-200">
+    <aside className="h-full w-20 lg:w-72 bg-base-300 border-r border-gray-200 overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 bg-base-200">
+      <div className="  hidden lg:block items-center justify-between p-4 bg-base-200">
         <h2 className="text-xl font-bold hidden lg:block">Chats</h2>
       </div>
 
       {/* User List */}
-      <div className="  overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+      <div className=" ">
         {users?.map((user, index) => (
           <button
             key={user.id || index}
             onClick={() => setSelectedUser(user)}
-            className={`  flex w-full items-center gap-4 p-3 hover:bg-base-100 transition-all duration-150 cursor-pointer ${
+            className={`  flex w-full items-center gap-4 px-0 py-2 lg:p-3 hover:bg-base-100 transition-all duration-150 cursor-pointer ${
               selectedUser?._id == user._id ? "bg-base-100" : ""
             }`}
           >
@@ -54,7 +54,7 @@ const Sidebar = () => {
             </div>
 
             {/* User Info */}
-            <div className="flex flex-col ">
+            <div className=" flex-col hidden  lg:flex  ">
               <h3 className="font-medium text-base">
                 {user?.fullName || "Unknown User"}
               </h3>
