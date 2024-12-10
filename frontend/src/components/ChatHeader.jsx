@@ -1,9 +1,11 @@
 import React from "react";
 import { X } from "lucide-react";
 import { useChatStore } from "../store/useChatStore";
+import { useAuthStore } from "../store/useAuthStore";
 
 const ChatHeader = () => {
   const { selectedUser, setSelectedUser } = useChatStore();
+  const { onLineUser } = useAuthStore();
 
   return (
     <div className="flex items-center justify-between bg-base-100 p-2">
@@ -18,7 +20,9 @@ const ChatHeader = () => {
         />
         <div>
           <h3 className="font-semibold">{selectedUser?.fullName}</h3>
-          <p className="text-sm">Online</p>
+          <p className="text-sm">
+            {onLineUser.includes(selectedUser._id) ? "Online" : "Offline"}
+          </p>
         </div>
       </div>
 

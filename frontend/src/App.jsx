@@ -13,7 +13,7 @@ import { Toaster } from "react-hot-toast";
 function App() {
   const { authUser, checkAuth, isCheckingAuth, onLineUser } = useAuthStore();
 
-  console.log("onLineUsers", onLineUser);
+  // console.log("onLineUsers", onLineUser);
 
   useEffect(() => {
     checkAuth();
