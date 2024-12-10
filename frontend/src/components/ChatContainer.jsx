@@ -41,13 +41,9 @@ const ChatContainer = () => {
   if (isLoadingMessage) {
     return <h1>Loading user message</h1>;
   }
-
   return (
     <div className="flex flex-col h-full">
-      {/* Chat header */}
       <ChatHeader />
-
-      {/* Scrollable messages container */}
       <div className="flex-1 overflow-y-auto p-4">
         {messages.map((message) => (
           <div
@@ -55,12 +51,12 @@ const ChatContainer = () => {
             key={message._id}
             className={`chat  ${
               message.senderId === authUser._id ? "chat-end" : "chat-start"
-            }`}
+            } `}
           >
             <div className="chat-image avatar">
               <div className="w-10 rounded-full">
                 <img
-                  alt="User profile"
+                  alt="Tailwind CSS chat bubble component"
                   src={
                     message.senderId === authUser._id
                       ? authUser.profilePic ||
@@ -73,27 +69,21 @@ const ChatContainer = () => {
             </div>
             <div className="chat-header">
               <time className="text-xs opacity-50">
+                {" "}
                 {formatMessageTime(message.createdAt)}
               </time>
             </div>
             <div className="chat-bubble flex flex-col">
               {message.image && (
-                <img
-                  src={message.image}
-                  alt="message attachment"
-                  className="w-[50%]"
-                />
+                <img src={message.image} alt="image" className="w-[50%]" />
               )}
               {message.text && <p>{message.text}</p>}
             </div>
           </div>
         ))}
-        {/* Scroll anchor */}
-        <div ref={messageEndRef} />
       </div>
 
-      {/* Fixed Chat Message input */}
-      <div className="">
+      <div>
         <ChatMessage />
       </div>
     </div>
